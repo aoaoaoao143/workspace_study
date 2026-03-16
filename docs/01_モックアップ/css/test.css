@@ -1,0 +1,67 @@
+body {
+    /* ページの余白をなくす */
+    margin: 0;
+    /* 文字フォント */
+    font-family: Arial, sans-serif;
+    /* 背景色*/
+    background-color: rgb(227, 191, 191);
+    /* デフォルト文字色 白 */
+    color: rgb(138, 78, 78);
+}
+
+/*--------------------------------------------------------------------------*/
+.header {
+    align-items: center;
+    background-color: #c96d5f;
+    padding: 10px;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/*--------------------------------------------------------------------------*/
+.main {
+    /*ルールボックス外側余白 上下0 左右80*/
+    margin: 25px 5%;
+}
+
+.main-title {
+    font-size: 26px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 500;
+}
+
+.shousai {
+    margin-bottom: 20px;
+    padding: 5px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    max-height: auto;
+    transition: max-height 2.0s ease, opacity 2.0s ease;
+    line-height: 2;
+    width: 460px;
+}
+
+.shousai-img {
+    padding-bottom: 10px;
+}
+
+.shousai-text {
+    font-size: 16px;
+}
+
+/*■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■*/
+#cardArea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.card {
+    width: 80px;
+}

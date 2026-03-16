@@ -1,0 +1,560 @@
+/* css辞書：https://developer.mozilla.org/ja/docs/Web/CSS
+　　色名：https://www.colordic.org/search?impression=tone10&hue=rp
+　　フォント：https://fonts.google.com/specimen/Zen+Kaku+Gothic+New?lang=ja_Jpan
+ */
+
+/* 全体：デフォルト設定値
+    外余白　　　　　上下左右 0px
+    背景色　　　　　Hexadecimal Code
+    文字フォント　　Zen Kaku Gothic New　（html <head>にGoogle Fontsの読み込みを記述）
+    文字の太さ　　　300　デフォルト用（500　ヘッダー/タイトル用）
+    文字のスタイル　通常体
+    文字サイズ　　　16px
+    文字の色　　　　白
+    行間　　　　　　1.5行
+ */
+body {
+    margin: 0px;
+    background-color: #cbc5ba;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.5;
+}
+
+/*--------------------------------------------------------------------------*/
+/* ヘッダー（画面上部） */
+
+/* ヘッダー：デフォルト設定値：
+    外余白　　　　　下 20px
+    内余白　　　　　上下左右 10px
+    高さ　　　　　　40px
+    背景色　　　　　グレー
+    子要素の並べ方　自由に制御
+    子要素の並び　　横
+    アイテム間　　　左右端に分ける
+    アイテム揃え方　縦方向を中央
+ */
+.header {
+    margin-bottom: 20px;
+    padding: 10px;
+    height: 40px;
+    background-color: #888;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+/* ヘッダー：文字の設定値：
+    文字の太さ　500　ヘッダー/タイトル用
+    文字サイズ　28px
+ */
+.header-title {
+    font-weight: 500;
+    font-size: 28px;
+}
+
+/* ヘッダー：ヘッダー右側（ボタン）の配置設定値：
+    各ボタン間隔　　15px
+    子要素の並べ方　自由に制御
+    子要素の並び　　横
+    アイテム揃え方　縦方向を中央
+ */
+.header-buttons {
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* ヘッダー：ボタンの設定値：
+    横幅　　　　　　28px
+    縦幅　　　　　　28px
+    縁　　　　　　　なし　※ボタンに透過箇所ありの画像を使用しているため宣言必須
+    背景色　　　　　なし　※ボタンに透過箇所ありの画像を使用しているため宣言必須
+    内余白　　　　　なし　※ボタンに画像を使用しているため宣言必須
+    子要素　　　　　自由に制御
+    子要素の並び　　横
+    アイテム揃え方　縦方向を中央
+ */
+.header-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* ボタン画像の設定値：
+    横比率　100%
+    縦比率　100%
+    ● 画像が歪まない
+ */
+.header-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ヘッダー：ボタンにカーソルが重なった時
+    アイテム変化　大きさ1.25倍
+ */
+.header-btn:hover {
+    transform: scale(1.25);
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* ヘッダー：≡（詳細表示）：
+    文字サイズ　28px
+ */
+.menu {
+    font-size: 28px;
+}
+
+/* ヘッダー：ボタンにカーソルが重なった時
+    アイテム変化　大きさ1.25倍
+ */
+.menu:hover {
+    transform: scale(1.25);
+}
+
+/* ヘッダー：ポップアップ設定：
+    子要素　　　　非表示
+    ポジション　　画面に固定
+    上から　　　　50px
+    右から　　　　3%
+    背景色　　　　白
+    文字色　　　　黒
+    縁角　　　　　5px 分丸く
+    ボックスの影　【要調査】
+*/
+.popup {
+    padding: 20px;
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 3%;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/*--------------------------------------------------------------------------*/
+/* メイン設定 */
+.main {
+    /*ルールボックス外側余白 上下0 左右80*/
+    margin: 25px 5%;
+}
+
+.main-title {
+    font-size: 26px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 500;
+}
+
+.rule-title {
+    font-size: 26px;
+    padding-left: 10px;
+    font-weight: 500;
+}
+
+.rule-title:hover {
+    text-decoration: underline;
+}
+
+.shousai {
+    margin-bottom: 20px;
+    padding: 5px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    max-height: auto;
+    transition: max-height 2.0s ease, opacity 2.0s ease;
+    line-height: 2;
+}
+
+.shousai-img {
+    padding-bottom: 10px;
+}
+
+.shousai-text {
+    font-size: 16px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 400px 550px;
+    gap: 20px;
+    margin: 0%;
+    justify-content: center;
+}
+
+@media (max-width: 1000px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 460px);
+    }
+
+    .coin-stacks {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 520px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 99%);
+    }
+}
+
+/* .grid-container {
+    display: grid;
+    gap: 20px;
+    margin: 0;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+} */
+
+/* .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.grid-container>* {
+    flex: 1 1 350px;
+} */
+
+.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+}
+
+/*--------------------------------------------------------------------------*/
+/* ボタン配置2列 */
+.game-genre-button {
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+    padding: 10px;
+    justify-content: space-evenly;
+    justify-items: center;
+    line-height: 5;
+}
+
+/* ボタン配置3列 */
+.game-type-button {
+    display: grid;
+    grid-template-columns: repeat(3, 270px);
+    padding: 10px;
+    justify-content: space-evenly;
+    justify-items: center;
+    line-height: 5;
+}
+
+/*ボタン画像の指定*/
+.img-btn {
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+/* 
+    親 (button) の幅に合わせて縮む
+    縦横比を保つ
+    余計な隙間を消す
+    角を丸くしない（デフォルト0）
+*/
+.img-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+@media (max-width: 950px) {
+    .game-type-button {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .game-genre-button {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+    }
+
+    .game-type-button {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 340px) {
+    .img-btn {
+        width: 99%;
+    }
+}
+
+/*--------------------------------------------------------------------------*/
+/* 画面下のボタン配置 */
+.btn-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+/* スタートボタンの設定 */
+#startBtn {
+    padding: 12px 25px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+#startBtn:hover {
+    background-color: #ffd000;
+    transform: scale(1.1);
+}
+
+/*--------------------------------------------------------------------------*/
+/* ルール表示制御ボタン */
+/* .detail-btn {
+    margin-left: 10px;
+    padding: 5px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+} */
+
+/*--------------------------------------------------------------------------*/
+/* プレイヤー人数指定の画像の設定 */
+.player-select {
+    display: grid;
+    justify-content: start;
+    gap: 0;
+    margin: 5px auto;
+    grid-template-columns: repeat(6, 15%);
+    position: relative;
+    align-items: stretch;
+}
+
+.player-icon {
+    cursor: pointer;
+    /* aspect-ratio: 1 / 1; */
+    width: 100%;
+    max-width: 80px;
+    padding: 3px 0px;
+    border: none;
+    background: none;
+    transition: transform 0.15s;
+    z-index: 1;
+}
+
+/* 
+    親 (button) の幅に合わせて縮む
+    縦横比を保つ
+    余計な隙間を消す
+    角を丸くしない（デフォルト0）
+ */
+.player-icon img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+#minAreaBg {
+    position: absolute;
+    grid-row: 1 / 2;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid white;
+    border-radius: 10px;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: calc(15% * var(--minP));
+    /* max-width: calc(80px * var(--minP)); */
+}
+
+/*--------------------------------------------------------------------------*/
+.coin-stacks-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.coin-select-area {
+    display: flex;
+    justify-content: start;
+    gap: 7%;
+    margin-top: 20px;
+}
+
+.coin {
+    width: 12%;
+    cursor: pointer;
+    /* 透明度4割 */
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.coin img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+.coin:hover {
+    transform: scale(1.08);
+}
+
+.coin.selected {
+    opacity: 1;
+}
+
+
+.coin-stacks {
+    display: flex;
+    grid-template-columns: repeat(5, 85px);
+    gap: 3%;
+    transform-origin: top left;
+}
+
+.coin-stack {
+    position: relative;
+    width: 85px;
+    height: 150px;
+}
+
+.numberOfCoins,
+.pfCoins {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: auto;
+}
+
+.money-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.money-control button {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/*--------------------------------------------------------------------------*/
+.choiceCountBox {
+    width: 150px;
+    height: 24px;
+    padding: 4px;
+    margin: 15px 0px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+/* 足し引き調整ボタン */
+.btnMinusPlus {
+    width: 12px;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+/* 足し引き調整ボタン画像 */
+.btnMinusPlus img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+}
+
+/*--------------------------------------------------------------------------*/
+/* タブレット用 */
+@media (max-width: 700px) {
+    .header-title {
+        font-size: 24px;
+    }
+
+    .main-title {
+        font-size: 22px;
+    }
+
+    .rule-title {
+        font-size: 22px;
+    }
+
+    .shousai {
+        margin-bottom: 10px 0px;
+        padding: 5px 20px;
+        font-size: 14px;
+    }
+}
+
+/*--------------------------------------------------------------------------*/
+/* スマホ用 */
+@media (max-width: 450px) {
+    .header-title {
+        font-size: 20px;
+    }
+
+    .main-title {
+        font-size: 18px;
+    }
+
+    .rule-title {
+        font-size: 18px;
+    }
+
+    .shousai {
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+}
+
+/*--------------------------------------------------------------------------*/
+@media (max-width: 360px) {
+    .header-title {
+        font-size: 16px;
+    }
+
+    .main-title {
+        font-size: 14px;
+    }
+
+    .rule-title {
+        font-size: 14px;
+    }
+
+    .shousai {
+        font-size: 10px;
+    }
+}

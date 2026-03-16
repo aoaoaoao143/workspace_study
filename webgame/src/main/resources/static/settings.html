@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム設定</title>
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-title" id="gameTitle">ゲーム名</div>
+
+        <div class="header-buttons">
+            <a href="trump.html">
+                <button class="header-btn">
+                    <img src="./img/button_back.png" alt="戻る">
+                </button>
+            </a>
+            <a href="game_start.html">
+                <button class="header-btn">
+                    <img src="./img/button_home.png" alt="ホーム">
+                </button>
+            </a>
+            <div class="menu" onclick="togglePopup()">≡</div> <!-- クリックでポップアップ -->
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="grid-container">
+            <!-- -------------------------------------------------------------- -->
+            <div class="shousai">
+                <div id="toggleDetailBtn" class="rule-title">
+                    ゲームルール ▶︎
+                </div>
+
+                <!-- ゲームルール表示制御 -->
+                <div id="gameRuleDetail" class="shousai-img hidden">
+                    <div id="ruleArea"></div>
+                </div>
+            </div>
+            <!-- -------------------------------------------------------------- -->
+            <!-- 参加者 -->
+            <div class="shousai">
+                <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+                <div class="main-title">参加人数の選択</div>
+                <div class="shousai-text">ゲームに必要な人数：　<span id="minPlayersValue">ー</span>人〜</div>
+                <div class="choiceCountBox">選択中 人数：<span id="choicePlayersValue">ー</span></div>
+
+                <div class="shousai-img">
+                    <div class="player-select">
+                        <div id="minAreaBg"></div>
+                        <!-- 1人目：あなた（固定） -->
+                        <img src="./img/player_you.png" class="player-icon" data-index="1">
+                        <!-- 2〜6人目：クリックで人数選択 -->
+                        <img src="./img/player.png" class="player-icon" data-index="2">
+                        <img src="./img/player.png" class="player-icon" data-index="3">
+                        <img src="./img/player.png" class="player-icon" data-index="4">
+                        <img src="./img/player.png" class="player-icon" data-index="5">
+                        <img src="./img/player.png" class="player-icon" data-index="6">
+                        <img src="./img/player.png" class="player-icon" data-index="7">
+                        <img src="./img/player.png" class="player-icon" data-index="8">
+                        <img src="./img/player.png" class="player-icon" data-index="9">
+                        <img src="./img/player.png" class="player-icon" data-index="10">
+                        <img src="./img/player.png" class="player-icon" data-index="11">
+                        <img src="./img/player.png" class="player-icon" data-index="12">
+                    </div>
+                    <!-- <p id="selectedValue">test_参加人数：◯人</p> -->
+                </div>
+                <!-- -------------------------------------------------------------- -->
+                <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+                <!-- チップ -->
+                <div class="main-title">チップの選択</div>
+                <div class="shousai-text">チップを1つ選択してください。</div>
+                <span class="choiceCountBox">選択中 コイン：<span id="selecteCoinValue">ー</span></span>
+
+                <div class="shousai-img">
+                    <div id="coin-selector" class="coin-select-area">
+                        <img src="./img/Coin_001.png" class="coin" data-value="1">
+                        <img src="./img/Coin_005.png" class="coin" data-value="5">
+                        <img src="./img/Coin_010.png" class="coin" data-value="10">
+                        <img src="./img/Coin_050.png" class="coin" data-value="50">
+                        <img src="./img/Coin_100.png" class="coin" data-value="100">
+                    </div>
+                </div>
+
+                <!-- 選択されたチップの値を受け取る場所 -->
+                <input type="hidden" id="coinInput" min="1" max="100" step="1" value="1" />
+
+                <!-- ----------------------------------------------- -->
+                <div class="main-title">手持ち金額の指定</div>
+
+                <div class="shousai-text">ゲーム開始時の所持金：　10枚〜</div>
+                <div class="choiceCountBox">選択中 金額：<span id="choiceCoinsValue">ー</span></div>
+
+                <!-- コイン枚数選択画像 -->
+                <div class="coin-stacks-wrapper">
+                    <div class="coin-stacks" id="coinStacks"></div>
+                </div>
+
+                <div id="moneyHControl" class="money-control">
+                    <!-- ボタン[-] -->
+                    <button id="minusBtn" class="btnMinusPlus"><img src="./img/btn_minus.png" alt="-"></button>
+                    <!-- 選択中の枚数の表示 -->
+                    <span>選択枚数:<span id="moneyHValueDisplay">10</span></span>
+                    <!-- ボタン[+] -->
+                    <button id="plusBtn" class="btnMinusPlus"><img src="./img/btn_plus.png" alt="+"></button>
+                </div>
+
+                <!-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+                <!-- -------------------------------------------------------------- -->
+                <!-- 参加費 -->
+                <div class="main-title">参加費の指定</div>
+
+                <div class="shousai-text">ゲーム毎の参加費を指定してください。</div>
+                <div class="choiceCountBox">選択中 金額：<span id="choiceCoinsPFValue">ー</span></div>
+
+                <!-- 参加枚数の表示 -->
+                <div class="coin-stack" id="pfcoinStack"></div>
+
+                <div id="moneyHControl" class="money-control">
+                    <!-- ボタン[-] -->
+                    <button id="minusBtnPF" class="btnMinusPlus"><img src="./img/btn_minus.png" alt="-"></button>
+                    <!-- 選択中の枚数の表示 -->
+                    <span>選択枚数:<span id="CoinPFValueDisplay">ー</span>／<span id="CoinPFAllValueDisplay">ー</span></span>
+                    <!-- ボタン[+] -->
+                    <button id="plusBtnPF" class="btnMinusPlus"><img src="./img/btn_plus.png" alt="+"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -------------------------------------------------------------- -->
+    <!-- ボタン配置 -->
+    <div class="btn-area">
+        <a href="#"></a><button id="startBtn">開始</button></a>
+    </div>
+    <!-- -------------------------------------------------------------- -->
+
+    </div>
+
+    <script src="./js/settings.js"></script>
+</body>
+
+</html>

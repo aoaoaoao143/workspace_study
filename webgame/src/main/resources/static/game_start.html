@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲーム選択画面</title>
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css"><!-- CSS読み込み -->
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div class="header header-title">
+        <div class="title">ゲーム選択</div>
+        <div class="menu" onclick="togglePopup()">≡</div> <!-- クリックでポップアップ -->
+    </div>
+
+    <!-- 中央ボタン -->
+    <div class="main">
+        <div class="game-genre-button">
+            <a href="trump.html">
+                <button class="img-btn"> <!-- id="startBtn" -->
+                    <img src="./img/button01_TrumpGame.png" data-normal="./img/button01_TrumpGame.png"
+                        data-hover="./img/button01_TrumpGame_hover.png" alt="トランプゲーム"><!--  id="startImg" -->
+                </button>
+            </a>
+
+            <a href="#">
+                <button class="img-btn">
+                    <img src="./img/button01_BoardGame.png" data-normal="./img/button01_BoardGame.png"
+                        data-hover="./img/button_noMaking_hover.png" alt="ボードゲーム">
+                    <!--"../img/button01_BoardGame_hover.png"-->
+                </button>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- ポップアップ -->
+    <div class="popup" id="popup">
+        詳細情報を書くことがあればここに表示。
+    </div>
+
+
+    <script src="./js/start.js"></script> <!-- JS読み込み -->
+</body>
+
+</html>

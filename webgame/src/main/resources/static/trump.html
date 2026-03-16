@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トランプゲーム選択</title>
+    <!-- フォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-title">トランプゲーム</div>
+
+        <div class="header-buttons">
+            <a href="game_start.html">
+                <button class="header-btn">
+                    <img src="./img/button_back.png" alt="戻る">
+                </button>
+            </a>
+            <div class="menu" onclick="togglePopup()">≡</div> <!-- クリックでポップアップ -->
+        </div>
+    </div>
+
+    <!-- ゲーム一覧 -->
+    <div class="main">
+        <div class="game-type-button" id="game-type-button">
+            <!-- "settings.html?game=babanuki" -->
+            <a href="settings.html?game=#">
+                <button class="img-btn">
+                    <img src="./img/button02_babanuki.png" data-normal="./img/button02_babanuki.png"
+                        data-hover="./img/button_noMaking_hover.png" alt="ババ抜き">
+                </button>
+            </a>
+
+            <a href="settings.html?game=indianpoker">
+                <button class="img-btn">
+                    <img src="./img/button02_IndianPoker.png" data-normal="./img/button02_IndianPoker.png"
+                        data-hover="./img/button02_IndianPoker_hover.png" alt="インディアンポーカー">
+                </button>
+            </a>
+
+            <!-- "settings.html?game=sevens" -->
+            <a href="#">
+                <button class="img-btn">
+                    <img src="./img/button02_Sevens.png" data-normal="./img/button02_Sevens.png"
+                        data-hover="./img/button_noMaking_hover.png" alt="七並べ">
+                </button>
+            </a>
+
+            <!-- "settings.html?game=solitaire" -->
+            <a href="#">
+                <button class="img-btn">
+                    <img src="./img/button02_Solitaire.png" data-normal="./img/button02_Solitaire.png"
+                        data-hover="./img/button_noMaking_hover.png" alt="ソリティア">
+                </button>
+            </a>
+
+            <!-- "settings.html?game=poker" -->
+            <a href="#">
+                <button class="img-btn">
+                    <img src="./img/button02_poker.png" data-normal="./img/button02_poker.png"
+                        data-hover="./img/button_noMaking_hover.png" alt="ポーカー">
+                </button>
+            </a>
+
+            <!-- "settings.html?game=millionaire" -->
+            <a href="#">
+                <button class="img-btn">
+                    <img src="./img/button02_millionaire.png" data-normal="./img/button02_millionaire.png"
+                        data-hover="./img/button_noMaking_hover.png" alt="大富豪">
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script src="./js/start.js"></script> <!-- JS読み込み -->
+</body>
+
+</html>
