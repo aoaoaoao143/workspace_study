@@ -12,7 +12,8 @@ const gameData = {
         betting: 0,
         // - - - - - - - - - - - - - - - - - - - -
         minPlayers: 0,
-        maxPlayers: 0
+        maxPlayers: 0,
+        nextPage: "#"
     },
     // -----------------------------------------------------------
     // ババ抜き
@@ -26,25 +27,12 @@ const gameData = {
 <br/>
 </p>`,
         // - - - - - - - - - - - - - - - - - - - -
-        //賭けなし
+        //賭け有無 0なし、1あり
         betting: 0,
         // - - - - - - - - - - - - - - - - - - - -
         minPlayers: 2,
-        maxPlayers: 6
-    },
-    // -----------------------------------------------------------
-    // 七並べ
-    sevens: {
-        title: "七並べ",
-        // - - - - - - - - - - - - - - - - - - - -
-        rule: `<p>7を中心にカードを並べていきます。<br/>
-手札を早くなくした人が勝ちです。</p>`,
-        // - - - - - - - - - - - - - - - - - - - -
-        //賭けなし
-        betting: 0,
-        // - - - - - - - - - - - - - - - - - - - -
-        minPlayers: 2,
-        maxPlayers: 6
+        maxPlayers: 6,
+        nextPage: "t-g_Babanuki.html"
     },
     // -----------------------------------------------------------
     // インディアンポーカー
@@ -61,12 +49,70 @@ const gameData = {
 <span style="color: rgb(206, 91, 91);">※「JOKER」は「2」よりも強いが、「3」には負けます。</span></p>
 <img src="./img/DiscImg_IndiP.png" alt="カード強さ表" style="width:100%; max-width:600px;">`,
         // - - - - - - - - - - - - - - - - - - - -
-        //賭けあり
+        //賭け有無 0なし、1あり
         betting: 1,
         // - - - - - - - - - - - - - - - - - - - -
         minPlayers: 2,
-        maxPlayers: 4
-    }
+        maxPlayers: 4,
+        nextPage: "t-g_Indianpoker.html"
+    },
+    // -----------------------------------------------------------
+    // 七並べ
+    sevens: {
+        title: "七並べ",
+        // - - - - - - - - - - - - - - - - - - - -
+        rule: `<p>7を中心にカードを並べていきます。<br/>
+    手札を早くなくした人が勝ちです。</p>`,
+        // - - - - - - - - - - - - - - - - - - - -
+        //賭け有無 0なし、1あり
+        betting: 0,
+        // - - - - - - - - - - - - - - - - - - - -
+        minPlayers: 2,
+        maxPlayers: 6,
+        nextPage: "t-g_Sevens.html"
+    },
+    // -----------------------------------------------------------
+    // ソリティア
+    solitaire: {
+        title: "ソリティア",
+        // - - - - - - - - - - - - - - - - - - - -
+        rule: `<p>説明</p>`,
+        // - - - - - - - - - - - - - - - - - - - -
+        //賭け有無 0なし、1あり
+        betting: 0,
+        // - - - - - - - - - - - - - - - - - - - -
+        minPlayers: 1,
+        maxPlayers: 1,
+        nextPage: "t-g_Solitaire.html"
+    },
+    // -----------------------------------------------------------
+    // ポーカー
+    poker: {
+        title: "ポーカー",
+        // - - - - - - - - - - - - - - - - - - - -
+        rule: `<p>説明</p>`,
+        // - - - - - - - - - - - - - - - - - - - -
+        //賭け有無 0なし、1あり
+        betting: 1,
+        // - - - - - - - - - - - - - - - - - - - -
+        minPlayers: 2,
+        maxPlayers: 6,
+        nextPage: "t-g_Poker.html"
+    },
+    // -----------------------------------------------------------
+    // ポーカー
+    millionaire: {
+        title: "大富豪",
+        // - - - - - - - - - - - - - - - - - - - -
+        rule: `<p>説明</p>`,
+        // - - - - - - - - - - - - - - - - - - - -
+        //賭け有無 0なし、1あり
+        betting: 0,
+        // - - - - - - - - - - - - - - - - - - - -
+        minPlayers: 2,
+        maxPlayers: 6,
+        nextPage: "t-g_Millionaire.html"
+    },
     // -----------------------------------------------------------
 };
 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -85,6 +131,8 @@ const detail = document.getElementById("gameRuleDetail");
 const icons = document.querySelectorAll('.player-icon');
 const minP = gameInfo.minPlayers;
 const maxP = gameInfo.maxPlayers;
+
+let selectedCount = minP;
 
 // タイトル表示
 document.getElementById("gameTitle").textContent = gameInfo.title;
@@ -128,7 +176,6 @@ if (gameID === "hogehoge") {
         // 【要修正】　ゲームに必要な人数分の背景色をつける
         updateMinArea();
 
-        let selectedCount = minP;
 
         // 表示1つめのアイコンを「YOU」に設定
         icons[0].src = "./img/player_you.png";
@@ -547,9 +594,16 @@ if (gameID === "hogehoge") {
 
     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
     // 開始ボタン
-    document.getElementById('startGame').addEventListener('click', () => {
-        // 例：人数を URL パラメータで次画面に渡す
-        window.location.href = `startGame.html?players=${selectedCount}&game=${gameID}`;
+    const gameStartPageMap = {
+        indianpoker: "t-g_IndianPoker.html",
+        babanuki: "t-g_babanuki.html"
+    };
+
+    document.getElementById('startBtn').addEventListener('click', () => {
+        const nextPage = gameInfo.nextPage;
+        // window.location.href = `${nextPage}?players=2&game=${gameID}`;
+        window.location.href = `${nextPage}?players=${selectedCount}&game=${gameID}&coin=${selectedCountCoins}&PFcoin=${selectedPFCountCoins}`;
+
     });
     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 }
