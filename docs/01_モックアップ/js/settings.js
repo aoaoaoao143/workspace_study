@@ -594,16 +594,57 @@ if (gameID === "hogehoge") {
 
     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
     // 開始ボタン
-    const gameStartPageMap = {
-        indianpoker: "t-g_IndianPoker.html",
-        babanuki: "t-g_babanuki.html"
-    };
+    // const gameStartPageMap = {
+    //     indianpoker: "t-g_IndianPoker.html",
+    //     babanuki: "t-g_babanuki.html"
+    // };
+    // 開始確認モーダル
+    const startBtn = document.getElementById('startBtn');
+    const confirmModal = document.getElementById('confirmModal');
+    const confirmModalOverlay = document.getElementById('confirmModalOverlay');
+    const changeBtn = document.getElementById('changeBtn');
+    const confirmStartBtn = document.getElementById('confirmStartBtn');
+    const confirmPlayersValue = document.getElementById('confirmPlayersValue');
+    const confirmPossessionValue = document.getElementById('confirmPossessionValue');
+    const confirmEntryValue = document.getElementById('confirmEntryValue');
 
-    document.getElementById('startBtn').addEventListener('click', () => {
-        const nextPage = gameInfo.nextPage;
-        // window.location.href = `${nextPage}?players=2&game=${gameID}`;
-        window.location.href = `${nextPage}?players=${selectedCount}&game=${gameID}&coin=${selectedCountCoins}&PFcoin=${selectedPFCountCoins}`;
+    function updateConfirmModalValues() {
+        confirmPlayersValue.textContent = `${selectedCount}`;
+        confirmPossessionValue.textContent = `${selectedCountCoins}`;
+        confirmEntryValue.textContent = `${selectedPFCountCoins}`;
+    }
 
+    function openConfirmModal() {
+        updateConfirmModalValues();
+        confirmModal.classList.remove('hidden-modal');
+        confirmModal.setAttribute('aria-hidden', 'false');
+    }
+
+    // document.getElementById('startBtn').addEventListener('click', () => {
+    //     const nextPage = gameInfo.nextPage;
+    //     window.location.href = `${nextPage}?players=${selectedCount}&game=${gameID}&coin=${selectedCountCoins}&PFcoin=${selectedPFCountCoins}`;
+    // });
+    function closeConfirmModal() {
+        confirmModal.classList.add('hidden-modal');
+        confirmModal.setAttribute('aria-hidden', 'true');
+    }
+
+    startBtn.addEventListener('click', () => {
+        openConfirmModal();
     });
-    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-}
+
+    changeBtn.addEventListener('click', () => {
+        closeConfirmModal();
+    });
+
+    confirmModalOverlay.addEventListener('click', () => {
+        closeConfirmModal();
+    });
+
+    confirmStartBtn.addEventListener('click', () => {
+        const nextPage = gameInfo.nextPage;
+        window.location.href = `${nextPage}?players=${selectedCount}&game=${gameID}&coin=${selectedCountCoins}&PFcoin=${selectedPFCountCoins}`;
+    });
+
+    // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+} 

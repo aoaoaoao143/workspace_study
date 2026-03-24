@@ -330,6 +330,92 @@ body {
     transform: scale(1.1);
 }
 
+.confirm-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.hidden-modal {
+    display: none;
+}
+
+.confirm-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.confirm-modal-content {
+    position: relative;
+    width: min(90vw, 520px);
+    padding: 28px 24px;
+    border-radius: 16px;
+    background: #f8f4eb;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-modal-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.confirm-modal-body {
+    margin-bottom: 24px;
+}
+
+.confirm-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.confirm-label {
+    min-width: 230px;
+}
+
+.confirm-unit {
+    margin-left: 4px;
+}
+
+.confirm-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.confirm-action-btn {
+    min-width: 140px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #444;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.confirm-action-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(0.96);
+}
+
+.confirm-action-change {
+    background: #73a7ff;
+}
+
+.confirm-action-start {
+    background: #ffd447;
+}
+
 /*--------------------------------------------------------------------------*/
 /* ルール表示制御ボタン */
 /* .detail-btn {

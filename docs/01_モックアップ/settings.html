@@ -141,11 +141,31 @@
     <!-- ボタン配置 -->
     <div class="btn-area">
         <!-- <a href="#"> -->
-        <button id="startBtn">開始</button>
+        <!-- <button id="startBtn">開始</button> -->
         <!-- </a> -->
+        <button id="startBtn">設定完了</button>
     </div>
     <!-- -------------------------------------------------------------- -->
 
+    </div>
+
+    <div id="confirmModal" class="confirm-modal hidden-modal" aria-hidden="true">
+        <div class="confirm-modal-overlay" id="confirmModalOverlay"></div>
+        <div class="confirm-modal-content" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+            <div id="confirmModalTitle" class="confirm-modal-title">この設定でゲームを開始しますか？</div>
+            <div class="confirm-modal-body">
+                <div class="confirm-row"><span class="confirm-label">ゲーム参加人数：</span><span
+                        id="confirmPlayersValue">ー</span><span class="confirm-unit">人</span></div>
+                <div class="confirm-row"><span class="confirm-label">チップ所持枚数：</span><span
+                        id="confirmPossessionValue">ー</span><span class="confirm-unit">枚</span></div>
+                <div class="confirm-row"><span class="confirm-label">参加枚数：</span><span
+                        id="confirmEntryValue">ー</span><span class="confirm-unit">枚</span></div>
+            </div>
+            <div class="confirm-modal-actions">
+                <button id="changeBtn" class="confirm-action-btn confirm-action-change">変更</button>
+                <button id="confirmStartBtn" class="confirm-action-btn confirm-action-start">開始</button>
+            </div>
+        </div>
     </div>
 
     <script src="./js/settings.js"></script>
