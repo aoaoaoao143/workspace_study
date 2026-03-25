@@ -605,11 +605,13 @@ if (gameID === "hogehoge") {
     const changeBtn = document.getElementById('changeBtn');
     const confirmStartBtn = document.getElementById('confirmStartBtn');
     const confirmPlayersValue = document.getElementById('confirmPlayersValue');
+    const confirmCoinValue = document.getElementById('confirmCoinValue');
     const confirmPossessionValue = document.getElementById('confirmPossessionValue');
     const confirmEntryValue = document.getElementById('confirmEntryValue');
 
     function updateConfirmModalValues() {
         confirmPlayersValue.textContent = `${selectedCount}`;
+        confirmCoinValue.textContent = `${currentCoinValue}`;
         confirmPossessionValue.textContent = `${selectedCountCoins}`;
         confirmEntryValue.textContent = `${selectedPFCountCoins}`;
     }
@@ -643,7 +645,7 @@ if (gameID === "hogehoge") {
 
     confirmStartBtn.addEventListener('click', () => {
         const nextPage = gameInfo.nextPage;
-        window.location.href = `${nextPage}?players=${selectedCount}&game=${gameID}&coin=${selectedCountCoins}&PFcoin=${selectedPFCountCoins}`;
+        window.location.href = `${nextPage}?game=${gameID}&players=${selectedCount}&coinval=${currentCoinValue}&coin=${selectedCountCoins}&PFcoin=${selectedPFCountCoins}`;
     });
 
     // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
