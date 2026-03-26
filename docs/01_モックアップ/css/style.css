@@ -56,6 +56,13 @@ body {
 .header-title {
     font-weight: 500;
     font-size: 28px;
+    justify-self: start;
+    /*260326追加実験*/
+}
+
+.header-center {
+    justify-self: center;
+    /*260326追加実験*/
 }
 
 /* ヘッダー：ヘッダー右側（ボタン）の配置設定値：
@@ -69,6 +76,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-self: end;
+    /*260326追加実験*/
 }
 
 /* ヘッダー：ボタンの設定値：
@@ -81,7 +90,9 @@ body {
     子要素の並び　　横
     アイテム揃え方　縦方向を中央
  */
-.header-btn {
+.header-btn,
+.header-toggle {
+    /*260326追加実験 header-toggle*/
     width: 28px;
     height: 28px;
     border: none;
@@ -90,6 +101,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    color: #fff;
+    /*260326追加実験*/
 }
 
 /* ボタン画像の設定値：
@@ -146,6 +159,62 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+/*--------------------------------------------------------------------------*/
+/* モックアップの設定 */
+/*260326追加実験*/
+#mockConfigPanel {
+    display: none;
+    background: #e3ded4;
+    color: #222;
+    padding: 16px;
+    border-bottom: 1px solid #b8b2a8;
+    font-size: 14px;
+}
+
+#mockConfigPanel.open {
+    display: block;
+}
+
+/* ? */
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
+}
+
+/* ? */
+.field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+/* ? */
+.round-row {
+    border-top: 1px dashed #aaa;
+    padding-top: 8px;
+    margin-top: 8px;
+}
+
+/* ? */
+select,
+input[type="checkbox"] {
+    padding: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------------------*/
 /* メイン設定 */
