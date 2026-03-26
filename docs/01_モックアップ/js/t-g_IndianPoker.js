@@ -60,10 +60,10 @@ function renderNpcs(showFront = false) {
         const n = `npc${i}`;
         const cardSrc = showFront ? cardPath(n) : './img/trump/0_card-back.png';
         row.insertAdjacentHTML('beforeend', `
-            <div class="participant" id="${n}_box">
+            <div class="ip-participant" id="${n}_box">
                 <div class="npc-action" id="${n}_action"></div>
                 <div class="npc-wrap">
-                    <img class="card" src="${cardSrc}" alt="${n}カード">
+                    <img class="ip-card" src="${cardSrc}" alt="${n}カード">
                     <img class="npc-img" src="./img/one-card_npc1.png" alt="${n}">
                 </div>
             </div>
@@ -164,7 +164,7 @@ document.getElementById('toggleMockupBtn').addEventListener('click', () => {
 document.getElementById('startBtn').addEventListener('click', startDeal);
 
 document.getElementById('firstActionRow').addEventListener('click', e => {
-    const btn = e.target.closest('.img-btn');
+    const btn = e.target.closest('.ip-img-btn');
     if (!btn) return;
     displayMyAction(btn.dataset.action);
     runRoundAfterMyAction();
@@ -176,7 +176,7 @@ document.getElementById('nextBetBtn').addEventListener('click', () => {
 });
 
 document.getElementById('nextActionRow').addEventListener('click', e => {
-    const btn = e.target.closest('.img-btn');
+    const btn = e.target.closest('.ip-img-btn');
     if (!btn) return;
     displayMyAction(btn.dataset.action);
     state.round += 1;
