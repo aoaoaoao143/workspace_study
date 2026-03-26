@@ -33,7 +33,7 @@ function initConfigPanel() {
         html += `<div><div class="field">${k === 'you' ? '自分' : k}：${buildSelect(suits, `${k}_suit`)} ${buildSelect(nums, `${k}_num`)}</div></div>`;
     });
 
-    html += '<div style="grid-column:1/-1">';
+    html += '<div class="round-list">';
     for (let r = 1; r <= 5; r++) {
         html += `<div class="round-row"><div><b>賭け${r}周目</b></div>`;
         ['npc1', 'npc2', 'npc3'].forEach(n => {

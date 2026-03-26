@@ -90,9 +90,7 @@ body {
     子要素の並び　　横
     アイテム揃え方　縦方向を中央
  */
-.header-btn,
-.header-toggle {
-    /*260326追加実験 header-toggle*/
+.header-btn {
     width: 28px;
     height: 28px;
     border: none;
@@ -102,7 +100,20 @@ body {
     flex-direction: row;
     align-items: center;
     color: #fff;
-    /*260326追加実験*/
+}
+
+/* ヘッダー真ん中 モックアップ設定 ボタンの設定値
+    codexで追加
+*/
+.header-toggle {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 4px 10px;
+    line-height: 1;
 }
 
 /* ボタン画像の設定値：
@@ -176,14 +187,12 @@ body {
     display: block;
 }
 
-/* ? */
 .config-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 12px;
 }
 
-/* ? */
 .field {
     display: flex;
     align-items: center;
@@ -192,14 +201,20 @@ body {
     margin-bottom: 8px;
 }
 
-/* ? */
+.round-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 .round-row {
-    border-top: 1px dashed #aaa;
-    padding-top: 8px;
+    border: 1px dashed #aaa;
+    border-radius: 6px;
+    padding: 8px;
+    min-width: 190px;
     margin-top: 8px;
 }
 
-/* ? */
 select,
 input[type="checkbox"] {
     padding: 2px;
@@ -337,7 +352,8 @@ input[type="checkbox"] {
     }
 
     .indian-poker-page .header-toggle {
-        font-size: 28px;
+        font-size: 14px;
+        padding: 4px 8px;
     }
 
     .indian-poker-page .header-center {
