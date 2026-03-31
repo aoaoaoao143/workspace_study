@@ -173,7 +173,6 @@ body {
 
 /*--------------------------------------------------------------------------*/
 /* モックアップの設定 */
-/*260326追加実験*/
 #mockConfigPanel {
     display: none;
     background: #e3ded4;
@@ -189,8 +188,14 @@ body {
 
 .config-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 12px;
+}
+
+.card-config-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px 12px;
 }
 
 .field {
@@ -205,14 +210,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 4px;
 }
 
 .round-row {
     border: 1px dashed #aaa;
     border-radius: 6px;
     padding: 8px;
-    min-width: 190px;
-    margin-top: 8px;
+    width: 135px;
+    flex: 0 0 auto;
 }
 
 select,

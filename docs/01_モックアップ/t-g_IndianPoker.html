@@ -31,7 +31,67 @@
         </div>
     </header>
 
-    <section id="mockConfigPanel"></section>
+    <section id="mockConfigPanel">
+        <div><b>モックアップ挙動設定</b></div>
+        <div class="config-grid">
+            <div class="card-config-list">
+                <div class="field">自分：
+                    <select id="you_suit"></select>
+                    <select id="you_num"></select>
+                </div>
+                <div class="field">npc1：
+                    <select id="npc1_suit"></select>
+                    <select id="npc1_num"></select>
+                </div>
+                <div class="field">npc2：
+                    <select id="npc2_suit"></select>
+                    <select id="npc2_num"></select>
+                </div>
+                <div class="field">npc3：
+                    <select id="npc3_suit"></select>
+                    <select id="npc3_num"></select>
+                </div>
+            </div>
+
+            <div class="round-list">
+                <div class="round-row">
+                    <div><b>賭け1周目</b></div>
+                    <div class="field">npc1<select id="r1_npc1"></select></div>
+                    <div class="field">npc2<select id="r1_npc2"></select></div>
+                    <div class="field">npc3<select id="r1_npc3"></select></div>
+                    <div class="field">end <input type="checkbox" id="r1_end"></div>
+                </div>
+                <div class="round-row">
+                    <div><b>賭け2周目</b></div>
+                    <div class="field">npc1<select id="r2_npc1"></select></div>
+                    <div class="field">npc2<select id="r2_npc2"></select></div>
+                    <div class="field">npc3<select id="r2_npc3"></select></div>
+                    <div class="field">end <input type="checkbox" id="r2_end"></div>
+                </div>
+                <div class="round-row">
+                    <div><b>賭け3周目</b></div>
+                    <div class="field">npc1<select id="r3_npc1"></select></div>
+                    <div class="field">npc2<select id="r3_npc2"></select></div>
+                    <div class="field">npc3<select id="r3_npc3"></select></div>
+                    <div class="field">end <input type="checkbox" id="r3_end"></div>
+                </div>
+                <div class="round-row">
+                    <div><b>賭け4周目</b></div>
+                    <div class="field">npc1<select id="r4_npc1"></select></div>
+                    <div class="field">npc2<select id="r4_npc2"></select></div>
+                    <div class="field">npc3<select id="r4_npc3"></select></div>
+                    <div class="field">end <input type="checkbox" id="r4_end"></div>
+                </div>
+                <div class="round-row">
+                    <div><b>賭け5周目</b></div>
+                    <div class="field">npc1<select id="r5_npc1"></select></div>
+                    <div class="field">npc2<select id="r5_npc2"></select></div>
+                    <div class="field">npc3<select id="r5_npc3"></select></div>
+                    <div class="field">end <input type="checkbox" id="r5_end"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <main class="main">
         <div class="pot" id="potLabel">現在の賭け金: チップ0枚</div>

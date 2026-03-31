@@ -21,35 +21,34 @@ const state = {
 
 const npcCount = Math.max(1, Math.min(3, settings.players - 1));
 
-function buildSelect(options, id) {
-    return `<select id="${id}">${options.map(v => `<option value="${v}">${v}</option>`).join('')}</select>`;
+function fillSelect(id, options) {
+    const select = document.getElementById(id);
+    if (!select) return;
+    select.innerHTML = options.map(v => `<option value="${v}">${v}</option>`).join('');
 }
 
 function initConfigPanel() {
-    const panel = document.getElementById('mockConfigPanel');
-    let html = '<div><b>モックアップ挙動設定</b></div><div class="config-grid">';
-
     ['you', 'npc1', 'npc2', 'npc3'].forEach(k => {
-        html += `<div><div class="field">${k === 'you' ? '自分' : k}：${buildSelect(suits, `${k}_suit`)} ${buildSelect(nums, `${k}_num`)}</div></div>`;
+        fillSelect(`${k}_suit`, suits);
+        fillSelect(`${k}_num`, nums);
     });
 
-    html += '<div class="round-list">';
     for (let r = 1; r <= 5; r++) {
-        html += `<div class="round-row"><div><b>賭け${r}周目</b></div>`;
         ['npc1', 'npc2', 'npc3'].forEach(n => {
-            html += `<div class="field">${n}${buildSelect(actions, `r${r}_${n}`)}</div>`;
+            fillSelect(`r${r}_${n}`, actions);
         });
-        html += `<div class="field">end <input type="checkbox" id="r${r}_end"></div></div>`;
     }
-    html += '</div></div>';
-    panel.innerHTML = html;
 }
 
+/** モックアップ用のカードの表示
+ * スートの代入
+ * 数字の代入
+ * img/trump/の画像指定
+ */
 function cardPath(playerKey) {
     const suit = document.getElementById(`${playerKey}_suit`)?.value || '0';
     const num = document.getElementById(`${playerKey}_num`)?.value || 'JOKER';
-    if (suit === '0') return './img/trump/0_card-back.png';
-    return num === 'JOKER' ? './img/trump/0_JOKER.jpeg' : `./img/trump/${suit}_${num}.jpeg`;
+    return num === 'JOKER' ? `./img/trump/0_JOKER.jpeg` : `./img/trump/${suit}_${num}.jpeg`;
 }
 
 function renderNpcs(showFront = false) {
